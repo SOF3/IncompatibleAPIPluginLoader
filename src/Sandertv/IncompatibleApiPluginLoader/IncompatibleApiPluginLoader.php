@@ -11,6 +11,7 @@ class IncompatibleApiPluginLoader extends PluginBase {
 		$incompatibleApiManager = new IncompatibleApiPluginManager($this->getServer(), $this->getServer()->getCommandMap());
 		$incompatibleApiManager->loadPlugins($this->getServer()->getPluginPath());
 
-		$incompatibleApiManager->getServer()->enablePlugins(PluginLoadOrder::STARTUP);
+		$this->getServer()->enablePlugins(PluginLoadOrder::STARTUP);
+		$this->getServer()->enablePlugins(PluginLoadOrder::POSTWORLD);
 	}
 }
