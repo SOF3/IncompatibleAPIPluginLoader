@@ -38,11 +38,11 @@ class IncompatibleApiPluginManager extends PluginManager {
 				$loaders = [];
 				foreach($newLoaders as $key){
 					if(isset($this->fileAssociations[$key])){
-						$loaders[$key] = $this->fileAssociations[$key];
+						$loaders[$key] = $this->server->getPluginmanager()->fileAssociations[$key];
 					}
 				}
 			}else{
-				$loaders = $this->fileAssociations;
+				$loaders = $this->server->getPluginManager()->fileAssociations;
 			}
 			foreach($loaders as $loader){
 				foreach(new \RegexIterator(new \DirectoryIterator($directory), $loader->getPluginFilters()) as $file){
