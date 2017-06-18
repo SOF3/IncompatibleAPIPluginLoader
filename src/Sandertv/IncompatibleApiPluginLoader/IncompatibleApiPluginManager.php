@@ -8,6 +8,7 @@ use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginDescription;
 use pocketmine\plugin\PluginManager;
 use pocketmine\Server;
+use pocketmine\utils\TextFormat;
 
 class IncompatibleApiPluginManager extends PluginManager {
 
@@ -111,6 +112,7 @@ class IncompatibleApiPluginManager extends PluginManager {
 						$missingDependency = false;
 						if($plugin = $this->server->getPluginManager()->loadPlugin($file, $loaders) and $plugin instanceof Plugin){
 							$loadedPlugins[$name] = $plugin;
+							$this->server->getLogger()->info(TextFormat::YELLOW . "Loading " . $name . " plugin with incompatible API version...");
 						}else{
 							$this->server->getLogger()->critical($this->server->getLanguage()->translateString("pocketmine.plugin.genericLoadError", [$name]));
 						}
@@ -124,6 +126,7 @@ class IncompatibleApiPluginManager extends PluginManager {
 							$missingDependency = false;
 							if($plugin = $this->server->getPluginManager()->loadPlugin($file, $loaders) and $plugin instanceof Plugin){
 								$loadedPlugins[$name] = $plugin;
+								$this->server->getLogger()->info(TextFormat::YELLOW . "Loading " . $name . " plugin with incompatible API version...");
 							}else{
 								$this->server->getLogger()->critical($this->server->getLanguage()->translateString("pocketmine.plugin.genericLoadError", [$name]));
 							}

@@ -11,4 +11,4 @@ api:
 - 3.0.0-ALPHA6
 author: Sandertv
 description: Allows enabling all plugins, disregarding the API version of it.
-load: POSTWORLD
+...
